@@ -3,12 +3,16 @@
   "private": true,
   "scripts": {
     "build": "turbo build",
-    "dev": "turbo dev",
+    "dev": "dotenv -- turbo dev --parallel --continue --no-cache",
+    "start": "dotenv -- turbo start --parallel --continue --no-cache",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "prepare": "husky"
+    "clean": "turbo clean",
+    "prepare": "husky",
+    "type-check": "dotenv -- turbo type-check --parallel --continue --no-cache"
   },
   "devDependencies": {
+    "dotenv-cli": "^7.4.2",
     "husky": "^9.0.11",
     "prettier": "^3.2.5",
     "turbo": "latest"

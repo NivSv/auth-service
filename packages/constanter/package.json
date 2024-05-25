@@ -1,0 +1,28 @@
+{
+    "name": "@seleniumer/constants",
+    "version": "1.0.0",
+    "description": "",
+    "main": "./dist/index.js",
+    "source": "./lib/index.ts",
+    "types": "./dist/index.d.ts",
+    "typesVersions": {
+        "*": {
+            "./dist/*": [
+                "./dist/*"
+            ]
+        }
+    },
+    "scripts": {
+        "build": "tsc -p tsconfig.build.json",
+        "type-check": "tsc --noEmit"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "peerDependencies": {
+        "typescript": "^4.9.5"
+    },
+    "dependencies": {
+        "zod": "^3.22.4"
+    }
+}
