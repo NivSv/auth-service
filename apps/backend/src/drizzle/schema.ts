@@ -1,4 +1,5 @@
 import {
+    boolean,
     index,
     mysqlEnum,
     mysqlTable,
@@ -14,12 +15,13 @@ export const users = mysqlTable(
         username: varchar('username', { length: 50 }).unique(),
         passwordHash: varchar('password_hash', { length: 255 }),
         passwordSalt: varchar('password_salt', { length: 255 }),
-        createAt: timestamp('create_at', { mode: 'date' }).default(new Date()),
+        createAt: timestamp('create_at', { mode: 'date' }).defaultNow(),
         updateAt: timestamp('update_at', { mode: 'date' }).$onUpdate(
             () => new Date()
         ),
         lastLogin: timestamp('last_login', { mode: 'date' }),
         status: mysqlEnum('status', ['active', 'suspended', 'deleted']),
+        isAdmin: boolean('is_admin').default(false),
     },
     (table) => {
         return {
